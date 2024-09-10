@@ -1,0 +1,22 @@
+@mixin flepProps($direction: row, $justify: center) {
+   display: flex;
+   flex-direction: $direction;
+   justify-content: $justify;
+}
+
+@mixin w-h-100 {
+   width: 100%;
+   height: 100%;
+}
+
+@mixin text-styles($color) {
+   font-size: 1.2rem;
+   color: $color;
+   line-height: 2.25rem;
+   font-weight: 700;
+}
+
+@mixin visibility {
+   visibility: hidden;
+   position: relative;
+}

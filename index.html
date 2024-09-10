@@ -1,212 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>AI BOOK HUB</title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Martel:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- The book -->
-  <div class="book">
-
-    <!-- Front cover of the book -->
-    <div class="front-cover">
-      <div class="cover">
-        <img src="images/front-cover.jpg" id="cover" alt="book cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI BOOK HUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="scss/main.css" />
+  </head>
+  <body>
+    <!-- The book -->
+    <div class="book">
+      <!-- Front cover of the book -->
+      <div class="front-cover">
+        <div class="cover">
+          <img src="images/front-cover.jpg" id="cover" alt="book cover" />
+        </div>
       </div>
-    </div>
 
-    <!-- First page with website info -->
-    <div id="page1" class="page piled">
-      <div class="intro rotate">
-        <h3>Welcome to AI BOOK HUB!<br><span>Your Books Recommendation Buddy</span></h3>
-        <p>
-          Have you ever felt lost in the world of books, unsure of what to read next? Well, we're here to make it easy.
-        </p>
-        <p>
-          At AI BOOK HUB, you tell us what you enjoy &ndash; your favorite genres, authors, or even how you're feeling today and our smart AI friend takes this information and finds a book that's just right for you.
-        </p>
+      <!-- First page with website info -->
+      <div id="page1" class="page piled">
+        <div id="intro" class="intro rotate">
+          <h3>
+            Welcome to AI BOOK HUB!<br /><span
+              >Your Books Recommendation Buddy</span
+            >
+          </h3>
+          <p id="p1">
+            Have you ever felt lost in the world of books, unsure of what to
+            read next? Well, we're here to make it easy.
+          </p>
+          <p id="p2">
+            At AI BOOK HUB, you tell us what you enjoy &ndash; your favorite
+            genres, authors, or even how you're feeling today and our smart AI
+            friend takes this information and finds a book that's just right for
+            you.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- Second page with website info -->
-    <div id="page2" class="page piled">
-      <div class="intro second">
-        <p>
-          Whether you're into mysteries, romance, or something else, we've got something for everyone. No more random picks or disappointments.
-        </p>
-        <p>
-          Ready to dive into your personalized reading adventure? Try AI BOOK HUB and let AI guide you to your next literary adventure. Your perfect book is just a few clicks away!
-        </p>
-        <button class="nxt-pg">Lets start >>></button>
+      <!-- Second page with website info -->
+      <div id="page2" class="page piled">
+        <div id="intro2" class="intro second">
+          <p id="p1">
+            Whether you're into mysteries, romance, or something else, we've got
+            something for everyone. No more random picks or disappointments.
+          </p>
+          <p id="p2">
+            Ready to dive into your personalized reading adventure? Try AI BOOK
+            HUB and let AI guide you to your next literary adventure. Your
+            perfect book is just a few clicks away!
+          </p>
+          <button class="nxt-pg">Lets start >>></button>
+        </div>
       </div>
-    </div>
 
-    <!-- Third page with first four input elements -->
-    <div id="page3" class="page piled">
-      <p class="text rotate">Kindly Share Your Personal Preferences</p>
+      <!-- Third page with first four input elements -->
+      <div id="page3" class="page piled">
+        <p class="text rotate">Kindly Share Your Personal Preferences</p>
 
-      <form class="form-left" onsubmit="validate(); return false" novalidate>
-        <div class="input-item">
-          <label for="ValidAge">Your Age :</label>
-          <select class="form-select form-control mt-2" id="ValidAge" aria-label="Select your Age group" required>
-            <option value="" selected disabled class="text-secondary">Select your Age group</option>
-            <option value="1">Below 18</option>
-            <option value="2">18 - 24</option>
-            <option value="3">24 - 40</option>
-            <option value="4">40 - 60</option>
-            <option value="5">60 and above</option>
-          </select>
-          <div class="invalid-feedback">
-            Please select a valid age.
+        <form
+          class="form-left"
+          onsubmit="validate(); return false"
+          novalidate
+          data-aos-id="input-area"
+        >
+          <div class="input-item">
+            <label for="ValidAge">Your Age :</label>
+            <select
+              class="form-select form-control mt-2"
+              id="ValidAge"
+              aria-label="Select your Age group"
+            >
+              <option value="" selected disabled class="text-secondary">
+                Select your Age group
+              </option>
+              <option value="less than 18">Below 18</option>
+              <option value="18-24">18 - 24</option>
+              <option value="24-60">24 - 40</option>
+              <option value="40-60">40 - 60</option>
+              <option value="60 and above">60 and above</option>
+            </select>
+            <div class="invalid-feedback">Please select a valid age.</div>
           </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidInterests" class="form-label">Interests &amp; Hobbies :</label>
-          <input type="text" class="form-control" id="ValidInterests" placeholder="Type Here" required autocomplete="off">
-          <div class="info">
-            <p>
-              Pick one of these or enter a different choice.
-            </p>
-            <p>
-              Reading, Writing, Travel, Photography, Cooking, Gardening, Music, Sports, Art &amp; Crafts, Hiking, Fitness, Dancing, Yoga &amp; Meditation, Gaming, Volunteering, Fashion, Collecting, Technology, Film and Cinema, Animals and Pets, DIY and Home Improvement, Sustainability and Environment, History and Culture, Science and Astronomy, Fashion, Cooking, Motorsports, Writing, Technology
-            </p>
+          <div class="input-item">
+            <label for="ValidInterests" class="form-label"
+              >Interests &amp; Hobbies :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="ValidInterests"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter a different choice.</p>
+              <p>
+                Reading, Writing, Travel, Photography, Cooking, Gardening,
+                Music, Sports, Art &amp; Crafts, Hiking, Fitness, Dancing, Yoga
+                &amp; Meditation, Gaming, Volunteering, Fashion, Collecting,
+                Technology, Film and Cinema, Animals and Pets, DIY and Home
+                Improvement, Sustainability and Environment, History and
+                Culture, Science and Astronomy, Fashion, Cooking, Motorsports,
+                Writing, Technology
+              </p>
+            </div>
+            <div class="invalid-feedback">
+              Please enter your Interests &amp; Hobbies
+            </div>
           </div>
-          <div class="invalid-feedback">
-            Please enter your Interests &amp; Hobbies
+          <div class="input-item">
+            <label for="ValidGenre" class="form-label">Favorite Genre :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ValidGenre"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter a different choice.</p>
+              <p>
+                Mystery, Thriller, Science Fiction, Fantasy, Romance, Drama,
+                Adventure, Non-Fiction, Historical, Biography, Science,
+                Self-Help, Classic, Children's, Young Adult (YA), Horror,
+                Comedy, Poetry, Travel, Cooking, Art
+              </p>
+            </div>
+            <div class="invalid-feedback">Please enter your favorite genre</div>
           </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidGenre" class="form-label">Favorite Genre :</label>
-          <input type="text" class="form-control" id="ValidGenre" placeholder="Type Here" required autocomplete="off">
-          <div class="info">
-            <p>
-              Pick one of these or enter a different choice.
-            </p>
-            <p>
-              Mystery, Thriller, Science Fiction, Fantasy, Romance, Drama, Adventure, Non-Fiction, Historical, Biography, Science, Self-Help, Classic, Children's, Young Adult (YA), Horror, Comedy, Poetry, Travel, Cooking, Art
-            </p>
+          <div class="input-item">
+            <label for="ValidAuthors" class="form-label"
+              >Favorite Authors (if any) :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="ValidAuthors"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>
+                If you have a favorite author, you can add their name here. You
+                can also type 'All' if you want to explore work of different
+                Authors.
+              </p>
+            </div>
+            <div class="invalid-feedback">
+              Please enter Author name or type 'All'
+            </div>
           </div>
-          <div class="invalid-feedback">
-            Please enter your favorite genre
-          </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidAuthors" class="form-label">Favorite Authors (if any) :</label>
-          <input type="text" class="form-control" id="ValidAuthors" placeholder="Type Here" autocomplete="off" required>
-          <div class="info">
-            <p>
-              If you have a favorite author, you can add their name here. You can also type 'All' if you want to explore work of different Authors.
-            </p>
-          </div>
-          <div class="invalid-feedback">
-            Please enter Author name or type 'All'
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <!-- Fourth page with other four input elements -->
-    <div id="page4" class="page piled">
-
-      <form class="form-right" onsubmit="validate(); return false" novalidate>
-        <div class="input-item">
-          <label for="ValidFormat" class="form-label">Book Format :</label>
-          <input type="text" class="form-control" id="ValidFormat" placeholder="Type Here" required autocomplete="off">
-          <div class="info">
-            <p>
-              Pick one of these or enter No Preferences, if format doesn't matter.
-            </p>
-            <p>
-              Printed-Book, E-Book, Audiobook, Braille, Interactive E-Book, Comic or Graphic Novel, Adapted or Simplified, Hardcover, Paperback, No Preferences
-            </p>
-          </div>
-          <div class="invalid-feedback">
-            Please enter your preferred Format
-          </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidLength" class="form-label">Book Length :</label>
-          <input type="text" class="form-control" id="ValidLength" placeholder="Type Here" required autocomplete="off">
-          <div class="info">
-            <p>
-              Pick one of these or enter No Preferences, if Length doesn't matter.
-            </p>
-            <p>
-              Short Story, Novel, Epic Novel, Series, Anthology, Graphic Novel, Poetry Collection, Picture Book, Non-Fiction Short Read, Non-Fiction Long Read, Magzine or Journal, Technical or Reference, Business or Professional Deveopment, No Preferences
-            </p>
-          </div>
-          <div class="invalid-feedback">
-            Please specify Length
-          </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidGoal" class="form-label">Reading Goal :</label>
-          <input type="text" class="form-control" id="ValidGoal" placeholder="Type Here" required autocomplete="off">
-          <div class="info">
-            <p>
-              Pick one of these or enter a different choice.
-            </p>
-            <p>
-              Discover New Genres, Read Biographies, Read for Entertainment, Learn Something New, Expand Cultural Knowledge, Complete a Series, Support Favorite Authors, For Motivation, Enhance Critical Thinking, For Passing Time
-            </p>
-          </div>
-          <div class="invalid-feedback">
-            Please enter your Goal
-          </div>
-        </div>
-        <div class="input-item">
-          <label for="ValidLanguage" class="form-label">Reading Language :</label>
-          <input type="text" class="form-control" id="ValidLanguage" placeholder="Type Here" autocomplete="off" required>
-          <div class="info">
-            <p>
-              Pick one of these or enter a different choice.
-            </p>
-            <p>
-              English, Hindi, Hinglish, Spanish, French, German, Chinese, Japanese, Italian, Russian, Arabic
-            </p>
-          </div>
-          <div class="invalid-feedback">
-            Please select your preferred Language
-          </div>
-        </div>
-        <div class="submit">
-          <input type="submit" class="btn btn-success" id="submit-inputs" value="Explore Books">
-        </div>
-      </form>
-    </div>
-
-    <!-- Fifth page with info -->
-    <div id="page5" class="page piled">
-      <div class="page5-info text-center ">
-        <p class="info-text">
-          Please note that the book recommendation feature is currently under development. As such, the system is not yet able to provide book recommendations.<br>
-Your patience and understanding are greatly appreciated as work is underway to bring this feature to life.
-        </p>
+        </form>
       </div>
-    </div>
 
-    <!-- Sixth page with greetings -->
-    <div id="page6" class="page piled text-center">
-      <div class="ending-page">
-        <p class="ending-page-info">
-          <span>Thank You for visiting AI BOOK HUB</span>
-          As you close this chapter, remember that books have the power to transport us to new worlds, spark our imaginations, and broaden our horizons. Keep turning those pages and discovering new adventures. Happy reading!"
-        </p>
-        <button id="reload"> &lt; &lt; Start Again  &gt; &gt; </button>
+      <!-- Fourth page with other four input elements -->
+      <div id="page4" class="page piled">
+        <form class="form-right" onsubmit="validate(); return false" novalidate>
+          <div class="input-item">
+            <label for="ValidFormat" class="form-label">Book Format :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ValidFormat"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter 'Any', if format doesn't matter.</p>
+              <p>
+                Printed-Book, E-Book, Audiobook, Braille, Interactive E-Book,
+                Comic or Graphic Novel, Adapted or Simplified, Hardcover,
+                Paperback, No Preferences
+              </p>
+            </div>
+            <div class="invalid-feedback">
+              Please enter your preferred Format
+            </div>
+          </div>
+          <div class="input-item">
+            <label for="ValidLength" class="form-label">Book Length :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ValidLength"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter 'Any', if Length doesn't matter.</p>
+              <p>
+                Short Story, Novel, Epic Novel, Series, Anthology, Graphic
+                Novel, Poetry Collection, Picture Book, Non-Fiction Short Read,
+                Non-Fiction Long Read, Magzine or Journal, Technical or
+                Reference, Business or Professional Deveopment, No Preferences
+              </p>
+            </div>
+            <div class="invalid-feedback">Please specify Length</div>
+          </div>
+          <div class="input-item">
+            <label for="ValidGoal" class="form-label">Reading Goal :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ValidGoal"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter a different choice.</p>
+              <p>
+                Discover New Genres, Read Biographies, Read for Entertainment,
+                Learn Something New, Expand Cultural Knowledge, Complete a
+                Series, Support Favorite Authors, For Motivation, Enhance
+                Critical Thinking, For Passing Time
+              </p>
+            </div>
+            <div class="invalid-feedback">Please enter your Goal</div>
+          </div>
+          <div class="input-item">
+            <label for="ValidLanguage" class="form-label"
+              >Reading Language :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="ValidLanguage"
+              placeholder="Type Here"
+              autocomplete="off"
+            />
+            <div class="info">
+              <p>Pick one of these or enter a different choice.</p>
+              <p>
+                English, Hindi, Hinglish, Spanish, French, German, Chinese,
+                Japanese, Italian, Russian, Arabic
+              </p>
+            </div>
+            <div class="invalid-feedback">
+              Please select your preferred Language
+            </div>
+          </div>
+          <div class="submit">
+            <input
+              type="button"
+              class="btn btn-success"
+              id="submit-inputs"
+              value="Explore Books"
+            />
+          </div>
+        </form>
       </div>
-    </div>
-    
-    <!-- Back Cover -->
-    <div class="back-cover"></div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-</body>
+      <!-- Fifth page with info -->
+      <div id="page5" class="page piled">
+        <div class="page5-info">
+          <span>Here are the 10 books that you can explore:</span>
+          <p id="search-result"></p>
+        </div>
+      </div>
+
+      <!-- Sixth page with greetings -->
+      <div id="page6" class="page piled text-center">
+        <div class="ending-page">
+          <p class="ending-page-info">
+            <span>Thank You for visiting AI BOOK HUB</span>
+            As you close this chapter, remember that books have the power to transport us to new worlds, spark our imaginations, and broaden our horizons. Keep turning those pages and discovering new adventures.
+            <br />
+            Happy reading!"
+          </p>
+          <button id="reload">&lt; &lt; Start Again &gt; &gt;</button>
+        </div>
+      </div>
+
+      <!-- Back Cover -->
+      <div class="back-cover"></div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js" type="module"></script>
+    <script src="utils/google-ai.js" type="module"></script>
+  </body>
 </html>
