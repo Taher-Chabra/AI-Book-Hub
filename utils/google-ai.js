@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Accessing API key
-const API_KEY = "AIzaSyCWZeqagyy4RR3-K4xjpqehZaT5QyoBgss";
+const API_KEY = GOOGLE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 export async function runPrompt(inputs) {
