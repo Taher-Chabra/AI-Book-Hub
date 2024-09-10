@@ -79,8 +79,7 @@ function validateInputs() {
 
 function validate() {
   validateInputs()
-  const allInputsAreValid = true
-  inputs.every(input => input.classList.contains('is-valid'))
+  const allInputsAreValid = inputs.every(input => input.classList.contains('is-valid'))
 
   if (allInputsAreValid) {
     fetchResult()
